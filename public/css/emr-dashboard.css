@@ -1,0 +1,153 @@
+/* Reset and base styles */
+body, h2, table, th, td, a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #f8fafc 0%, #e0eafc 100%);
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px 24px 24px;
+}
+
+h2 {
+  text-align: center;
+  color: #1e3c72;
+  margin-bottom: 28px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.emr-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f8fafc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(42,82,152,0.04);
+}
+
+.emr-table thead {
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+}
+
+.emr-table th, .emr-table td {
+  padding: 14px 12px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.emr-table th {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.emr-table tbody tr {
+  border-bottom: 1px solid #e3e6f3;
+  transition: background 0.2s;
+}
+
+.emr-table tbody tr:hover {
+  background: #eaf6ff;
+}
+
+.emr-table td {
+  color: #2a5298;
+}
+
+.btn {
+  display: inline-block;
+  padding: 7px 16px;
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.98rem;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+  color: #e0eafc;
+}
+
+.nav-back {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.nav-back .card {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #2a5298;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.nav-back .card:hover {
+  background: #1e3c72;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .dashboard-container {
+    max-width: 98vw;
+    padding: 18px 4vw 18px 4vw;
+  }
+  .emr-table th, .emr-table td {
+    padding: 10px 6px;
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 10px 2vw 10px 2vw;
+  }
+  .emr-table, .emr-table thead, .emr-table tbody, .emr-table tr, .emr-table th, .emr-table td {
+    display: block;
+    width: 100%;
+  }
+  .emr-table thead {
+    display: none;
+  }
+  .emr-table tr {
+    margin-bottom: 18px;
+    background: #f8fafc;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(42,82,152,0.04);
+    padding: 8px 0;
+  }
+  .emr-table td {
+    padding: 8px 12px;
+    text-align: left;
+    position: relative;
+    font-size: 1rem;
+  }
+  .emr-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #1e3c72;
+    display: block;
+    margin-bottom: 2px;
+    font-size: 0.95em;
+  }
+}

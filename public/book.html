@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment - Telemedicine Platform</title>
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Book an Appointment</h2>
+
+    <form id="appointmentForm">
+      <input type="text" name="specialty" placeholder="Specialty (e.g. General, Cardiology)" required />
+
+      <select name="doctorId" id="doctorSelect" required>
+        <option value="">Loading doctors...</option>
+      </select>
+
+      <input type="datetime-local" name="timeSlot" required />
+
+      <button type="submit">Book Appointment</button>
+    </form>
+
+    <p id="appointmentMessage"></p>
+  </div>
+
+  <!-- Link to ext

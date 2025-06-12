@@ -1,0 +1,190 @@
+/* Reset some default styles */
+body, h2, h3, ul, li, form, input, select, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px 24px 24px;
+}
+
+h2 {
+  text-align: center;
+  color: #2a5298;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+form#quickBookForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+  justify-content: space-between;
+}
+
+form#quickBookForm select,
+form#quickBookForm input[type="datetime-local"] {
+  flex: 1 1 180px;
+  padding: 10px;
+  border: 1px solid #b2bec3;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+
+form#quickBookForm select:focus,
+form#quickBookForm input[type="datetime-local"]:focus {
+  border-color: #2a5298;
+  outline: none;
+}
+
+form#quickBookForm button {
+  flex: 1 1 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+form#quickBookForm button:hover {
+  background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.appointments-section {
+  margin-bottom: 28px;
+}
+
+h3 {
+  color: #1e3c72;
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+}
+
+.appointments-list {
+  list-style: none;
+}
+
+.appointments-list li {
+  background: #f4f8fb;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(42,82,152,0.04);
+}
+
+.appointments-list span.status {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.95em;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.status.confirmed {
+  background: #e0f7e9;
+  color: #27ae60;
+  border: 1px solid #27ae60;
+}
+
+.status.pending {
+  background: #fff8e1;
+  color: #f39c12;
+  border: 1px solid #f39c12;
+}
+
+.status.completed {
+  background: #e3e6f3;
+  color: #2a5298;
+  border: 1px solid #2a5298;
+}
+
+.cancel-btn, .reschedule-btn, .view-emr {
+  background: none;
+  border: none;
+  color: #2a5298;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.15s;
+  text-decoration: underline;
+}
+
+.cancel-btn:hover {
+  background: #ffeaea;
+  color: #c0392b;
+}
+
+.reschedule-btn:hover {
+  background: #eaf6ff;
+  color: #2980b9;
+}
+
+.view-emr:hover {
+  background: #eaf6ff;
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.nav-back {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.nav-back .card {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #2a5298;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.nav-back .card:hover {
+  background: #1e3c72;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .dashboard-container {
+    max-width: 98vw;
+    padding: 18px 4vw 18px 4vw;
+  }
+  form#quickBookForm {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .appointments-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
