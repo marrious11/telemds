@@ -1,5 +1,6 @@
+<?php /* ...existing code... */ ?>
 <!--// === Logout Page ===
-// File: logout.html -->
+// File: logout.php -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +18,8 @@
       </div>
       <nav>
         <ul>
-          <li><a href="dashboard.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a href="dashboard.php">Home</a></li>
+          <li><a href="login.php">Login</a></li>
         </ul>
       </nav>
     </header>
@@ -26,7 +27,7 @@
       <div class="logout-container">
         <h2>You have been logged out</h2>
         <p>Thank you for using the Telemedicine Platform.</p>
-        <a href="login.html" class="btn">Login Again</a>
+        <a href="login.php" class="btn">Login Again</a>
       </div>
       <script>
         // Clear session data

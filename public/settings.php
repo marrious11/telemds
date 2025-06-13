@@ -1,3 +1,4 @@
+<?php /* ...existing code... */ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,18 +10,18 @@
   <body>
     <header>
       <div class="header-flex">
-        <a href="admin-dashboard.html"
+        <a href="admin-dashboard.php"
           ><img src="images/logo.png" alt="Logo" class="header-logo"
         /></a>
         <h1>TeleMDS</h1>
       </div>
       <nav>
         <ul>
-          <li><a href="admin-dashboard.html">Dashboard</a></li>
-          <li><a href="users.html">Users</a></li>
-          <li><a href="appointments.html">Appointments</a></li>
-          <li><a href="settings.html">Settings</a></li>
-          <li><a href="logout.html">Logout</a></li>
+          <li><a href="admin-dashboard.php">Dashboard</a></li>
+          <li><a href="users.php">Users</a></li>
+          <li><a href="appointments.php">Appointments</a></li>
+          <li><a href="settings.php">Settings</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
       </nav>
     </header>

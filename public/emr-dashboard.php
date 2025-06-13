@@ -1,5 +1,6 @@
+<?php /* ...existing code... */ ?>
 <!--// === View EMR Dashboard Page === -->
-<!--/* File: emr-dashboard.html */ -->
+<!--/* File: emr-dashboard.php */ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +18,9 @@
       </div>
       <nav>
         <ul>
-          <li><a href="dashboard.html">Home</a></li>
-          <li><a href="emr-dashboard.html">Medical Records</a></li>
-          <li><a href="logout.html">Logout</a></li>
+          <li><a href="dashboard.php">Home</a></li>
+          <li><a href="emr-dashboard.php">Medical Records</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
       </nav>
     </header>
@@ -62,7 +63,7 @@
         </table>
 
         <div class="nav-back">
-          <a href="dashboard.html" class="card">← Back to Dashboard</a>
+          <a href="dashboard.php" class="card">← Back to Dashboard</a>
         </div>
       </div>
     </main>

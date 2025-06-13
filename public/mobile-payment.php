@@ -1,3 +1,4 @@
+<?php /* ...existing code... */ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,10 +15,10 @@
       </div>
       <nav>
         <ul>
-          <li><a href="dashboard.html">Home</a></li>
-          <li><a href="book.html">Book Appointment</a></li>
-          <li><a href="mobile-payment.html">Mobile Payment</a></li>
-          <li><a href="logout.html">Logout</a></li>
+          <li><a href="dashboard.php">Home</a></li>
+          <li><a href="book.php">Book Appointment</a></li>
+          <li><a href="mobile-payment.php">Mobile Payment</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
       </nav>
     </header>

@@ -1,3 +1,4 @@
+<?php /* ...existing code... */ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,9 +15,9 @@
       </div>
       <nav>
         <ul>
-          <li><a href="dashboard.html">Home</a></li>
-          <li><a href="book-dashboard.html">Book & Manage</a></li>
-          <li><a href="logout.html">Logout</a></li>
+          <li><a href="dashboard.php">Home</a></li>
+          <li><a href="book-dashboard.php">Book & Manage</a></li>
+          <li><a href="logout.php">Logout</a></li>
         </ul>
       </nav>
     </header>
@@ -67,7 +68,7 @@
             <li>
               <span>Dr. Joy Mbua</span> - 2025-06-10 11:00 AM
               <span class="status completed">Completed</span>
-              <a href="emr-dashboard.html" class="view-emr">View EMR</a>
+              <a href="emr-dashboard.php" class="view-emr">View EMR</a>
             </li>
           </ul>
         </div>
