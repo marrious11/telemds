@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db = 'telemedicine_db';
+$db = 'telemeds_db';
 $user = 'root';
 $pass = ''; // your MySQL password
 

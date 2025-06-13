@@ -67,3 +67,21 @@ footer {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+/* Admin dashboard link button */
+.admin-link-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 22px;
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.admin-link-btn:hover {
+  background: #0097a7;
+}
