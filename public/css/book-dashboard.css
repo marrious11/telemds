@@ -220,6 +220,20 @@ h3 {
   background: #1e3c72;
 }
 
+/* Header logo and flex layout */
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.header-logo {
+  height: 48px;
+  width: 48px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 /* Responsive Design */
 @media (max-width: 700px) {
   .dashboard-container {
