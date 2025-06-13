@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Telemedicine Platform</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Telemedicine Platform</title>
 
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="css/login.css" />
-</head>
-<body>
-  <div class="login-container">
-    <h2>Login</h2>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-flex">
+        <img src="images/logo.png" alt="Logo" class="header-logo" />
+        <h1>TeleMDS</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="registration.html">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="login-container">
+        <h2>Login</h2>
 
-    <form id="loginForm">
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <select name="role" required>
-        <option value="patient">Patient</option>
-       <!-- <option value="doctor">Doctor</option> -->
-      </select>
-      
-      <button type="submit">Login</button>
-    </form>
+        <form id="loginForm">
+          <input type="email" name="email" placeholder="Email" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <select name="role" required>
+            <option value="patient">Patient</option>
+            <!-- <option value="doctor">Doctor</option> -->
+          </select>
 
-    <p id="loginMessage"></p>
+          <button type="submit">Login</button>
+        </form>
 
-    <div class="link-area">
-      <p>Don't have an account?</p>
-      <a href="registration.html" class="create-btn">Create Account</a>
-    </div>
-  </div>
+        <p id="loginMessage"></p>
 
-  <script src="js/login.js"></script>
-</body>
+        <div class="link-area">
+          <p>Don't have an account?</p>
+          <a href="registration.html" class="create-btn">Create Account</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 TeleMDS. All rights reserved.</p>
+    </footer>
+
+    <script src="js/login.js"></script>
+  </body>
 </html>

@@ -1,13 +1,16 @@
 /* Reset and base styles */
-body, h2, p, a {
+body,
+h2,
+p,
+a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);
+  background: #f4f6f8;
   min-height: 100vh;
 }
 
@@ -16,7 +19,7 @@ body {
   margin: 80px auto;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   padding: 36px 24px 28px 24px;
   text-align: center;
 }
@@ -46,12 +49,46 @@ p {
   border: none;
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(42,82,152,0.04);
+  box-shadow: 0 2px 8px rgba(42, 82, 152, 0.04);
 }
 
 .btn:hover {
   background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
   color: #e0eafc;
+}
+
+/* Header and Footer Consistency */
+header {
+  background: #2d3e50;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+nav ul li a:hover {
+  color: #00bcd4;
+}
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background: #2d3e50;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 /* Responsive Design */

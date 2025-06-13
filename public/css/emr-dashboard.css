@@ -1,13 +1,18 @@
 /* Reset and base styles */
-body, h2, table, th, td, a {
+body,
+h2,
+table,
+th,
+td,
+a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
-  background: linear-gradient(120deg, #f8fafc 0%, #e0eafc 100%);
+  background: #f4f6f8;
   min-height: 100vh;
 }
 
@@ -16,7 +21,7 @@ body {
   margin: 40px auto;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   padding: 32px 24px 24px 24px;
 }
 
@@ -35,7 +40,7 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 32px;
-  box-shadow: 0 2px 8px rgba(42,82,152,0.04);
+  box-shadow: 0 2px 8px rgba(42, 82, 152, 0.04);
 }
 
 .emr-table thead {
@@ -43,7 +48,8 @@ h2 {
   color: #fff;
 }
 
-.emr-table th, .emr-table td {
+.emr-table th,
+.emr-table td {
   padding: 14px 12px;
   text-align: left;
   font-size: 1rem;
@@ -106,13 +112,48 @@ h2 {
   background: #1e3c72;
 }
 
+/* Header and Footer Consistency */
+header {
+  background: #2d3e50;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+nav ul li a:hover {
+  color: #00bcd4;
+}
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background: #2d3e50;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 800px) {
   .dashboard-container {
     max-width: 98vw;
     padding: 18px 4vw 18px 4vw;
   }
-  .emr-table th, .emr-table td {
+  .emr-table th,
+  .emr-table td {
     padding: 10px 6px;
     font-size: 0.98rem;
   }
@@ -122,7 +163,12 @@ h2 {
   .dashboard-container {
     padding: 10px 2vw 10px 2vw;
   }
-  .emr-table, .emr-table thead, .emr-table tbody, .emr-table tr, .emr-table th, .emr-table td {
+  .emr-table,
+  .emr-table thead,
+  .emr-table tbody,
+  .emr-table tr,
+  .emr-table th,
+  .emr-table td {
     display: block;
     width: 100%;
   }
@@ -133,7 +179,7 @@ h2 {
     margin-bottom: 18px;
     background: #f8fafc;
     border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(42,82,152,0.04);
+    box-shadow: 0 1px 4px rgba(42, 82, 152, 0.04);
     padding: 8px 0;
   }
   .emr-table td {
