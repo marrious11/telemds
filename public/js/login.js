@@ -1,21 +1,25 @@
-document.getElementById('loginForm').addEventListener('submit', async function (e) {
+document.getElementById('loginForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const data = Object.fromEntries(new FormData(this));
+  const email = document.querySelector('input[name="email"]').value.trim();
+  const password = document.querySelector('input[name="password"]').value.trim();
+  const role = document.querySelector('select[name="role"]').value;
+  const loginMessage = document.getElementById('loginMessage');
 
-  const res = await fetch('php/login.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  });
+  // Retrieve users from localStorage
+  const users = JSON.parse(localStorage.getItem('users')) || [];
 
-  const result = await res.json();
+  // Find user with matching email, password, and role
+  const user = users.find(u => u.email === email && u.password === password && u.role === role);
 
-  if (result.user) {
-    localStorage.setItem('userId', result.user.id);
-    localStorage.setItem('userRole', result.user.role);
-    window.location.href = 'dashboard.html';
+  if (user) {
+    loginMessage.textContent = "Login successful! Redirecting...";
+    loginMessage.style.color = "green";
+    setTimeout(() => {
+      window.location.href = 'dashboard.html';
+    }, 1000);
   } else {
-    document.getElementById('loginMessage').innerText = result.message;
+    loginMessage.textContent = "Invalid email, password, or role.";
+    loginMessage.style.color = "red";
   }
 });

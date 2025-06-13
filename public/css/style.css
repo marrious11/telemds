@@ -73,6 +73,25 @@
     color: green;
   }
   
+  /* === Logo Styling === */
+  img[alt="Logo"], .logo {
+    display: block;
+    margin: 0 auto 18px auto;
+    width: 80px;
+    height: 80px;
+    max-width: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e6f0fa 60%, #d0e7ff 100%);
+    box-shadow: 0 4px 16px rgba(0, 123, 255, 0.10);
+    padding: 12px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  img[alt="Logo"]:hover, .logo:hover {
+    transform: scale(1.08) rotate(-4deg);
+    background: linear-gradient(135deg, #d0e7ff 60%, #e6f0fa 100%);
+    box-shadow: 0 8px 24px rgba(0, 123, 255, 0.18);
+  }
+  
   /* === Responsive Design === */
   @media (max-width: 600px) {
     .container {
@@ -87,4 +106,3 @@
       font-size: 16px;
     }
   }
-  
