@@ -10,11 +10,9 @@ TeleMDS is a web-based telemedicine platform designed to connect patients and do
 2. **Set up XAMPP/LAMP or any PHP environment.**
 3. **Import the database:**
    - Use the full backup at `database/main.backup/telemeds_db_updated.sql` to create the database and tables. (All migrations are already included in this backup.)
-4. **Start the PHP development server:**
-   - Run `php server.php` from the project root. This will serve the `public/` directory at `http://localhost:8000`.
-   - The `server.php` script is a helper that launches PHP's built-in server with the correct document root.
-5. **Access the application:**
-   - Open your browser and go to `http://localhost:8000`.
+4. **Access the application:**
+   - If using Apache (XAMPP/LAMP), you do NOT need to start the PHP server manually. The included `.htaccess` file will automatically route all requests to the `public/` directory, so visiting the root URL (e.g., `http://localhost/telemds/`) will serve the landing page in `public/index.php`.
+   - If you prefer, you can still use `php server.php` to start the PHP built-in server for development.
 
 ---
 
@@ -45,6 +43,7 @@ telemds/
 │   ├── contact-dashboard.php
 │   ├── ddashboard.php      # Doctor dashboard
 │   ├── emr-dashboard.php
+│   ├── index.php           # Landing page
 │   ├── login.php
 │   ├── logout.php
 │   ├── pdashboard.php      # Patient dashboard
@@ -52,6 +51,7 @@ telemds/
 │   ├── settings.php
 │   ├── superadmin-dashboard.php
 │   ├── users.php
+├── .htaccess                # Routes all requests to public/ for Apache
 ├── run_sql_script.php      # Run SQL migrations from PHP
 ├── server.php              # Start PHP dev server
 ├── README.md               # This file
@@ -124,6 +124,13 @@ Example:
 
 ## License
 MIT License
+
+---
+
+## Notes on Routing & Entry Point
+- The project root contains a `.htaccess` file that ensures all requests are routed to the `public/` directory, making `public/index.php` the main entry point for the app.
+- If you access the project root directly, you will be redirected or routed to the landing page in `public/index.php`.
+- This setup allows you to use the app without starting the PHP built-in server from the CLI.
 
 ---
 For questions or contributions, please contact the project maintainer.

@@ -24,7 +24,7 @@ include 'php/register2.php'
         </div>
         <nav>
             <ul>
-                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="registration.php">Register</a></li>
             </ul>

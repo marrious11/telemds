@@ -1,0 +1,15 @@
+# .htaccess for TeleMDS
+# Redirect all requests to the public directory unless the file/folder exists in root
+
+RewriteEngine On
+
+# If the requested file or directory exists in the root, serve it
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise, rewrite all requests to /public, preserving the path
+RewriteRule ^(.*)$ public/$1 [L]
+
+# Optionally, set the DirectoryIndex to public/index.php
+DirectoryIndex public/index.php
