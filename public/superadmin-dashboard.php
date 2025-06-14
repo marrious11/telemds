@@ -66,8 +66,9 @@ try {
                             <form method="post" action="php/approve_doctor.php" style="display:inline;">
                                 <input type="hidden" name="user_id" value="<?= $doc['id'] ?>">
                                 <input type="hidden" name="name" value="<?= htmlspecialchars($doc['name']) ?>">
-                                <input type="hidden" name="specialty"
-                                    value="<?= htmlspecialchars($doc['specialty'] ?? '') ?>">
+                                <input type="hidden" name="email" value="<?= htmlspecialchars($doc['email']) ?>">
+                                <input type="hidden" name="phone" value="<?= isset($doc['phone']) ? htmlspecialchars($doc['phone']) : '' ?>">
+                                <input type="hidden" name="specialty" value="<?= htmlspecialchars($doc['specialty'] ?? '') ?>">
                                 <button type="submit">Approve</button>
                             </form>
                             <?php else: ?>

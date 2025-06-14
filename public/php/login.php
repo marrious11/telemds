@@ -10,14 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Sanitize input
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
+    $role = trim($_POST['role']);
 
-    if (empty($email) || empty($password)) {
-        $loginMessage = "Please enter both email and password.";
+    if (empty($email) || empty($password) || empty($role)) {
+        $loginMessage = "Please enter email, password, and select a role.";
     } else {
         try {
-            // Check if user exists
-            $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+            // Check if user exists with the selected role
+            $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email AND role = :role");
             $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':role', $role);
             $stmt->execute();
 
             if ($stmt->rowCount() == 1) {
@@ -41,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $loginMessage = "Invalid password.";
                 }
             } else {
-                $loginMessage = "User not found.";
+                $loginMessage = "User not found or role mismatch.";
             }
         } catch (PDOException $e) {
             $loginMessage = "Error: " . $e->getMessage();

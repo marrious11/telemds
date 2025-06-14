@@ -37,6 +37,10 @@ include 'php/login.php'; // Connects using PDO
             <form method="POST" action="">
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
+                <select name="role" required>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                </select>
                 <button type="submit">Login</button>
             </form>
 
