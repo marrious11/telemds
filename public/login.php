@@ -8,6 +8,8 @@ include 'php/login.php'; // Connects using PDO
 if (isset($_GET['error']) && $_GET['error'] === 'account_missing') {
     $error_message = 'Your account no longer exists. Please register or contact support.';
 }
+
+$superadminPassword = 'superadmin2025'; // Set your super admin password here
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +53,11 @@ if (isset($_GET['error']) && $_GET['error'] === 'account_missing') {
             <div class="link-area">
                 <a href="registration.php" class="create-btn">Create an Account</a>
             </div>
-
+            <div style="margin-top:20px;color:#333;background:#f8f8f8;padding:10px;border-radius:6px;">
+                <strong>Super Admin Login:</strong><br>
+                Username: <code>superadmin</code><br>
+                Password: <code><?= htmlspecialchars($superadminPassword) ?></code>
+            </div>
             <p id="loginMessage" style="color:red;"><?php echo $loginMessage; ?></p>
             <?php if (isset($error_message)): ?>
                 <div style="background:#ffe0e0;color:#a00;padding:8px;margin-bottom:10px;"><?php echo $error_message; ?></div>

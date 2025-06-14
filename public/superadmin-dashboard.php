@@ -2,6 +2,39 @@
 // superadmin-dashboard.php
 // This page allows the super admin to approve doctors from the users table
 include 'php/db.php';
+session_start();
+
+// Super admin demo credentials
+$superadminPassword = 'superadmin2025';
+
+// Check if super admin is logged in
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'superadmin') {
+    // Show superadmin login form
+    echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Super Admin Login</title><link rel="stylesheet" href="css/style.css"></head><body style="text-align:center;padding:40px;">';
+    echo '<h1>Super Admin Login</h1>';
+    echo '<form method="POST" action="">
+        <input type="text" name="username" placeholder="Username" required style="margin-bottom:10px;"><br>
+        <input type="password" name="password" placeholder="Password" required style="margin-bottom:10px;"><br>
+        <button type="submit">Login</button>
+    </form>';
+    echo '<div style="margin-top:20px;color:#333;background:#f8f8f8;padding:10px;border-radius:6px;">';
+    echo '<strong>Super Admin Credentials (for demo):</strong><br>Username: <code>superadmin</code><br>Password: <code>' . htmlspecialchars($superadminPassword) . '</code></div>';
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'] ?? '';
+        $password = $_POST['password'] ?? '';
+        if ($username === 'superadmin' && $password === $superadminPassword) {
+            $_SESSION['user_id'] = 0;
+            $_SESSION['name'] = 'Super Admin';
+            $_SESSION['role'] = 'superadmin';
+            header('Location: superadmin-dashboard.php');
+            exit;
+        } else {
+            echo '<p style="color:red;">Invalid credentials.</p>';
+        }
+    }
+    echo '</body></html>';
+    exit;
+}
 
 // Fetch all users with doctor role and check if they are approved (in doctors table)
 $doctors = [];
