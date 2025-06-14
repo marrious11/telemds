@@ -9,9 +9,7 @@ TeleMDS is a web-based telemedicine platform designed to connect patients and do
 1. **Clone or download this repository to your local machine.**
 2. **Set up XAMPP/LAMP or any PHP environment.**
 3. **Import the database:**
-   - Use the full backup at `database/main.backup/telemeds_db_updated.sql` to create the database and tables.
-   - Alternatively, run the migration scripts in `database/` for incremental setup.
-   - You can use the provided script: `php run_sql_script.php migrate_appointments_add_urgency_attachment` (and others as needed).
+   - Use the full backup at `database/main.backup/telemeds_db_updated.sql` to create the database and tables. (All migrations are already included in this backup.)
 4. **Start the PHP development server:**
    - Run `php server.php` from the project root. This will serve the `public/` directory at `http://localhost:8000`.
    - The `server.php` script is a helper that launches PHP's built-in server with the correct document root.
