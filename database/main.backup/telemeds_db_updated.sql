@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2025 at 10:04 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jun 14, 2025 at 12:48 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,20 +32,23 @@ CREATE TABLE `appointments` (
   `patient_id` int(11) DEFAULT NULL,
   `doctor_id` int(11) DEFAULT NULL,
   `specialty` text DEFAULT NULL,
+  `urgency` enum('routine','soon','urgent') DEFAULT 'routine',
+  `attachment` varchar(255) DEFAULT NULL,
   `time_slot` datetime DEFAULT NULL,
   `status` enum('pending','confirmed','completed') DEFAULT 'pending',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `appointments`
 --
 
-INSERT INTO `appointments` (`id`, `patient_id`, `doctor_id`, `specialty`, `time_slot`, `status`, `created_at`) VALUES
-(1, NULL, 1, NULL, '2025-06-15 10:00:00', 'pending', '2025-06-13 04:31:11'),
-(2, NULL, 2, NULL, '2025-06-16 14:30:00', 'pending', '2025-06-13 04:31:11'),
-(3, NULL, 1, NULL, '2025-06-15 10:00:00', 'pending', '2025-06-13 04:34:08'),
-(4, NULL, 2, NULL, '2025-06-16 14:30:00', 'pending', '2025-06-13 04:34:08');
+INSERT INTO `appointments` (`id`, `patient_id`, `doctor_id`, `specialty`, `urgency`, `attachment`, `time_slot`, `status`, `created_at`) VALUES
+(1, NULL, 1, NULL, 'routine', NULL, '2025-06-15 10:00:00', 'pending', '2025-06-13 04:31:11'),
+(2, NULL, 2, NULL, 'routine', NULL, '2025-06-16 14:30:00', 'pending', '2025-06-13 04:31:11'),
+(3, NULL, 1, NULL, 'routine', NULL, '2025-06-15 10:00:00', 'pending', '2025-06-13 04:34:08'),
+(4, NULL, 2, NULL, 'routine', NULL, '2025-06-16 14:30:00', 'pending', '2025-06-13 04:34:08'),
+(34, 51, NULL, 'i am sick', 'urgent', NULL, '2025-06-14 00:56:00', 'pending', '2025-06-14 09:57:00');
 
 -- --------------------------------------------------------
 
@@ -59,7 +62,7 @@ CREATE TABLE `audit_logs` (
   `action` varchar(100) NOT NULL,
   `details` text DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `audit_logs`
@@ -83,7 +86,7 @@ CREATE TABLE `doctors` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `specialty` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `doctors`
@@ -99,7 +102,9 @@ INSERT INTO `doctors` (`id`, `name`, `specialty`) VALUES
 (19, 'Bob Doctor', ''),
 (20, 'Ngassi', ''),
 (21, 'Frank', ''),
-(22, 'Sally', '');
+(22, 'Sally', ''),
+(23, 'Tumbu John', ''),
+(24, 'Tabe', '');
 
 -- --------------------------------------------------------
 
@@ -114,7 +119,7 @@ CREATE TABLE `medical_records` (
   `summary` text DEFAULT NULL,
   `record_url` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -129,7 +134,7 @@ CREATE TABLE `messages` (
   `message` text NOT NULL,
   `is_read` tinyint(1) DEFAULT 0,
   `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -147,7 +152,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `reset_token` varchar(64) DEFAULT NULL,
   `reset_expires` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -158,7 +163,14 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `role`, `create
 (2, 'Bob Doctor', 'bob@example.com', '0987654321', 'password2', 'doctor', '2025-06-13 04:06:52', NULL, NULL),
 (8, 'Marrious Marrious', 'sohmarrious@gmail.com', '0652863664', '$2y$10$1PvajPx.R2ZB6uU7wY/3e.DVOnI5tnBz5yGLUhR3oq4205XZs5SPm', 'patient', '2025-06-13 09:27:28', '69fb2a009dd00e4372ad2558be78869055742f0f0639e566027b9033a329d15f', '2025-06-14 10:36:09'),
 (9, 'tabe', 'tabenathanael@gmail.com', '6 71 36 40 89', '$2y$10$lTkRR998cRxXNQf8rLxSg.fEr3r37G8d59.cp/NzlAB8dV4Ozlhom', 'patient', '2025-06-13 09:28:53', NULL, NULL),
-(13, 'sedis wiliam', 'williamsedis@gmail.com', NULL, '', '', '2025-06-14 01:42:44', '87aaca6349997d527a0065b91cfd20a99b5a87309ebc6eb1444cfc22ac1389bb', '2025-06-14 10:35:56');
+(13, 'sedis wiliam', 'williamsedis@gmail.com', NULL, '', '', '2025-06-14 01:42:44', '87aaca6349997d527a0065b91cfd20a99b5a87309ebc6eb1444cfc22ac1389bb', '2025-06-14 10:35:56'),
+(39, 'Bob Doctor', 'bobdoctor@example.com', NULL, '$2y$10$wH8Qw6Qw6Qw6Qw6Qw6Qw6uQw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6', 'doctor', '2025-06-14 08:56:23', NULL, NULL),
+(40, 'Ngassi', 'ngassi@example.com', NULL, '$2y$10$wH8Qw6Qw6Qw6Qw6Qw6Qw6uQw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6', 'doctor', '2025-06-14 08:56:23', NULL, NULL),
+(41, 'Frank', 'frank@example.com', NULL, '$2y$10$wH8Qw6Qw6Qw6Qw6Qw6Qw6uQw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6', 'doctor', '2025-06-14 08:56:23', NULL, NULL),
+(42, 'Sally', 'sally@example.com', NULL, '$2y$10$wH8Qw6Qw6Qw6Qw6Qw6Qw6uQw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6', 'doctor', '2025-06-14 08:56:23', NULL, NULL),
+(43, 'Tumbu John', 'tumbujohn@example.com', NULL, '$2y$10$wH8Qw6Qw6Qw6Qw6Qw6Qw6uQw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6Qw6', 'doctor', '2025-06-14 08:56:23', NULL, NULL),
+(51, 'Tumbu John', 'tumbujohn3@gmail.com', '682307565', '$2y$10$iJZx3zx6iTHrLTE31sqT7OkjzBX1Q5rLfV5fUJQveKqiwjQl8OCHu', 'patient', '2025-06-14 09:55:59', NULL, NULL),
+(52, 'Tabe', 'tabenathanael2@gmail.com', '682307565', '$2y$10$EZ0nPKaEPKGuFDRwrMWgBuEerZwqXabVcCkRbEbFQZqp/S6me4E8G', 'doctor', '2025-06-14 10:41:34', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -216,7 +228,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `audit_logs`
@@ -228,7 +240,7 @@ ALTER TABLE `audit_logs`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `medical_records`
@@ -246,7 +258,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Constraints for dumped tables
