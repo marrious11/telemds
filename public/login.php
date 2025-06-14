@@ -4,6 +4,10 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 include 'php/login.php'; // Connects using PDO
 
+// Show a custom error message if redirected due to missing account
+if (isset($_GET['error']) && $_GET['error'] === 'account_missing') {
+    $error_message = 'Your account no longer exists. Please register or contact support.';
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +53,9 @@ include 'php/login.php'; // Connects using PDO
             </div>
 
             <p id="loginMessage" style="color:red;"><?php echo $loginMessage; ?></p>
+            <?php if (isset($error_message)): ?>
+                <div style="background:#ffe0e0;color:#a00;padding:8px;margin-bottom:10px;"><?php echo $error_message; ?></div>
+            <?php endif; ?>
         </div>
     </main>
 

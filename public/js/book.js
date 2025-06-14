@@ -10,26 +10,12 @@ document.addEventListener("DOMContentLoaded", function () {
       message.textContent = "";
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
-
-      try {
-        const response = await fetch("/api/appointments", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-        const result = await response.json();
-        if (response.ok) {
-          message.style.color = "green";
-          message.textContent = result.message || "Appointment booked!";
-          form.reset();
-        } else {
-          message.style.color = "red";
-          message.textContent = result.message || "Booking failed.";
-        }
-      } catch (err) {
-        message.style.color = "red";
-        message.textContent = "Network error. Please try again.";
-      }
+      // Rename fields to match backend expectations
+      data.doctor_id = data.doctorId;
+      data.time_slot = data.timeSlot;
+      // Remove unused fields
+      delete data.doctorId;
+      delete data.timeSlot;
     });
   }
 });
