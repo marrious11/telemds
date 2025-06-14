@@ -96,7 +96,7 @@ Most logic is handled via PHP forms, but some endpoints return JSON for dynamic 
 ---
 
 ## Screenshots
-> _Add screenshots of the login page, dashboards, and booking form here for better documentation._
+> _screenshots of the login page, dashboards, and booking form here for better reference._
 
 Example:
 ![Login Page](screenshots/login.png)
