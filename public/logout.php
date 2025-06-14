@@ -1,7 +1,11 @@
-<?php /* ...existing code... */ ?>
-<!--// === Logout Page ===
-// File: logout.php -->
+<?php
+// === Logout Page ===
+// File: logout.php
 
+session_start();
+session_unset();
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

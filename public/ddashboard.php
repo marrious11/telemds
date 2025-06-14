@@ -1,3 +1,8 @@
+<?php
+session_start();
+$name = isset($_SESSION['name']) ? $_SESSION['name'] : '[Name]';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +29,7 @@
     <main>
         <div class="dashboard-container">
             <section class="overview">
-                <h2>Welcome, Dr. [Name]</h2>
+                <h2>Welcome, Dr. <?= htmlspecialchars($name) ?></h2>
                 <p>Here is a summary of your activities:</p>
                 <ul>
                     <li>Upcoming Appointments: <span id="upcoming-appointments">0</span></li>
@@ -44,6 +49,10 @@
                 <a class="card" href="settings.php">
                     <img src="icons/doctor.png" alt="Settings">
                     <span>Settings</span>
+                </a>
+                <a class="card" href="contact-dashboard.php">
+                    <img src="icons/doctor.png" alt="Contact Patient">
+                    <span>Contact Patient</span>
                 </a>
                 <a class="card logout" href="logout.php">
                     <img src="icons/logout.png" alt="Logout">

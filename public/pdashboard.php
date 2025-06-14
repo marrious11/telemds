@@ -1,3 +1,8 @@
+<?php
+session_start();
+$name = isset($_SESSION['name']) ? $_SESSION['name'] : '[Patient Name]';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +33,7 @@
     </header>
     <main>
         <div class="dashboard-container">
-            <h2>Welcome, [Patient Name]</h2>
+            <h2>Welcome, <?= htmlspecialchars($name) ?></h2>
 
             <div class="grid-menu">
                 <a href="book.php" class="card">
@@ -44,6 +49,11 @@
                 <a href="contact-dashboard.php" class="card">
                     <img src="icons/doctor.png" alt="Doctor" />
                     <span>Contact Doctor</span>
+                </a>
+
+                <a href="book-dashboard.php" class="card">
+                    <img src="icons/calendar.png" alt="My Appointments" />
+                    <span>My Appointments</span>
                 </a>
 
                 <a href="logout.php" class="card logout">

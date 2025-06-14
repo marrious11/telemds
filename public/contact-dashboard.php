@@ -17,7 +17,7 @@
       </div>
       <nav>
         <ul>
-          <li><a href="dashboard.php">Home</a></li>
+          <li><a href="pdashboard.php">Home</a></li>
           <li><a href="contact-dashboard.php">Contact Doctor</a></li>
           <li><a href="logout.php">Logout</a></li>
         </ul>

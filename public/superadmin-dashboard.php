@@ -115,9 +115,6 @@ try {
             <?php endif; ?>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 TeleMDS. All rights reserved.</p>
-    </footer>
 </body>
 
 </html>
